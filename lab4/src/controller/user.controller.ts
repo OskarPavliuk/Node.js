@@ -30,4 +30,12 @@ userRoutes.route("/:id").put((req, res) => {
     }
 
 })
+userRoutes.route("/:id").put((req, res) => {
+    try{
+        userService.deleteOne(req.params.id);
+        } catch (e){
+        res.status(500).send({error:e});
+    }
+
+})
 export default userRoutes;
